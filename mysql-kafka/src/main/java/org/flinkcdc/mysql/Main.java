@@ -44,25 +44,21 @@ public class Main {
                 "      'password' = 'root',\n" +
                 "      'database-name' = 'test',\n" +
                 "      'table-name' = 'out_cdc')";
-
-        String sink = "CREATE TABLE sink\n" +
-                "(\n" +
-                "    id      INT,\n" +
-                "    name STRING\n" +
-                ") WITH (\n" +
-                "      'connector' = 'print')";
-
+        String sink = "CREATE TABLE sink \n" +
+                " (\n" +
+                "     id      INT, \n" +
+                "     name STRING \n" +
+                " ) WITH ( \n" +
+                "        'connector' = 'kafka',\n" +
+                "        'topic' = 'chuixue',\n" +
+                "        'properties.bootstrap.servers' = 'localhost:9092', \n" +
+                "        'format' = 'debezium-json')";
         String insert = "insert into sink select * from source";
-
-
 
         EnvironmentSettings settings = EnvironmentSettings
                 .newInstance()
                 .build();
         TableEnvironment tableEnv = TableEnvironment.create(settings);
-
-        // https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/config/
-        // https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/
 
         Configuration configuration = tableEnv.getConfig().getConfiguration();
         configuration.setString(PipelineOptions.NAME, "mysql-kafka");
