@@ -21,59 +21,53 @@
 
 ## 使用步骤
 
-1.代码内容如下：
+1.将工程下载到本地，编译、打包
+![img.png](doc/image/img.png)
+
+2.编辑sql文件，代码内容如下：
 ```
-        // source端配置和数据类型 参考上面
-        String source = "CREATE TABLE source\n" +
-                "(\n" +
-                "    id      INT,\n" +
-                "    name STRING,\n" +
-                "    PRIMARY KEY (id) NOT ENFORCED\n" +
-                ") WITH (\n" +
-                "      'connector' = 'mysql-cdc',\n" +
-                "      'hostname' = 'localhost',\n" +
-                "      'port' = '3306',\n" +
-                "      'username' = 'root',\n" +
-                "      'password' = 'root',\n" +
-                "      'database-name' = 'test',\n" +
-                "      'table-name' = 'out_cdc')";
-        // sink端配置和数据类型 参考上面
-        String sink = "CREATE TABLE sink \n" +
-                " (\n" +
-                "     id      INT, \n" +
-                "     name STRING \n" +
-                " ) WITH ( \n" +
-                "        'connector' = 'kafka',\n" +
-                "        'topic' = 'chuixue',\n" +
-                "        'properties.bootstrap.servers' = 'localhost:9092', \n" +
-                "        'format' = 'debezium-json')";
+// 定义配置(并行度、容错、状态后段等相关配置)，配置可以参考下面链接：
+// https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/config/
+// https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/
+set pipeline.name = mysql-kafka;
+set table.exec.resource.default-parallelism = 1;
 
-        String insert = "insert into sink select * from source";
+// source端配置和数据类型 参考上面
+CREATE TABLE source
+(
+    id   INT,
+    name STRING,
+    PRIMARY KEY (id) NOT ENFORCED
+) WITH (
+      'connector' = 'mysql-cdc',
+      'hostname' = 'localhost',
+      'port' = '3306',
+      'username' = 'root',
+      'password' = 'root',
+      'database-name' = 'test',
+      'table-name' = 'out_cdc');
 
+// sink端配置和数据类型 参考上面
+CREATE TABLE sink
+(
+    id   INT,
+    name STRING
+) WITH (
+      'connector' = 'kafka',
+      'topic' = 'chuixue',
+      'properties.bootstrap.servers' = 'localhost:9092',
+      'format' = 'debezium-json');
 
-
-        EnvironmentSettings settings = EnvironmentSettings
-                .newInstance()
-                .build();
-        TableEnvironment tableEnv = TableEnvironment.create(settings);
-
-        // 并行度、容错、状态后段等相关配置，参考下面链接
-        // https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/config/
-        // https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/
-        Configuration configuration = tableEnv.getConfig().getConfiguration();
-        configuration.setString(PipelineOptions.NAME, "mysql-kafka");
-        configuration.setString("table.exec.resource.default-parallelism", "1");
-
-        tableEnv.executeSql(source).print();
-        tableEnv.executeSql(sink).print();
-        StatementSet statementSet = tableEnv.createStatementSet();
-        statementSet.addInsertSql(insert);
-
-        statementSet.execute();
-```
-2.将工程下载到本地，编译、打包   
+// 执行sql
+insert into sink
+select *
+from source
+``` 
 3.在服务器上执行 
+找到需要采集的数据源和目的，比如采集mysql到kafka，这选择mysql-kafka-1.13.5-2.2.1.jar运行，执行如下命令即可
+```
+java -cp mysql-kafka-1.13.5-2.2.1.jar org.flinkcdc.core.Main sql文件的路径
+```
 
 ## 后续计划
-1.支持更多数据库采集   
-2.将上面的sql代码和配置单独放到一个文件中，做到不用修改代码即可支持采集
+1.支持更多数据库采集
