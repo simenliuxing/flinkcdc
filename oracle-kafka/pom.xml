@@ -12,6 +12,19 @@
     <artifactId>oracle-kafka</artifactId>
     <name>flinkcdc : oracle-kafka</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.flinkcdc</groupId>
+            <artifactId>core</artifactId>
+            <version>${core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ververica</groupId>
+            <artifactId>flink-connector-oracle-cdc</artifactId>
+            <version>${flinkcdc.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

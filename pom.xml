@@ -22,6 +22,8 @@
         <target.java.version>1.8</target.java.version>
         <dist.dir>flinkcdc-dist</dist.dir>
         <git.branch>1.13.5-2.2.1</git.branch>
+        <core.version>1.14.0</core.version>
+        <flinkcdc.version>2.2.1</flinkcdc.version>
     </properties>
 
     <build>

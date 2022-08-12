@@ -12,22 +12,16 @@
     <artifactId>mysql-kafka</artifactId>
     <name>flinkcdc : mysql-kafka</name>
 
-    <properties>
-        <core.version>1.14.0</core.version>
-        <mysql-cdc.version>2.2.1</mysql-cdc.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.flinkcdc</groupId>
             <artifactId>core</artifactId>
             <version>${core.version}</version>
         </dependency>
-        <!-- mysql-cdc -->
         <dependency>
             <groupId>com.ververica</groupId>
             <artifactId>flink-connector-mysql-cdc</artifactId>
-            <version>${mysql-cdc.version}</version>
+            <version>${flinkcdc.version}</version>
         </dependency>
     </dependencies>
 

@@ -26,13 +26,13 @@
 
 2.编辑sql文件，代码内容如下：
 ```
-// 定义配置(并行度、容错、状态后段等相关配置)，配置可以参考下面链接：
-// https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/config/
-// https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/
+-- 定义配置(并行度、容错、状态后段等相关配置)，配置可以参考下面链接：
+-- https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/config/
+-- https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/
 set pipeline.name = mysql-kafka;
 set table.exec.resource.default-parallelism = 1;
 
-// source端配置和数据类型 参考上面
+-- source端配置和数据类型 参考上面
 CREATE TABLE source
 (
     id   INT,
@@ -47,7 +47,7 @@ CREATE TABLE source
       'database-name' = 'test',
       'table-name' = 'out_cdc');
 
-// sink端配置和数据类型 参考上面
+-- sink端配置和数据类型 参考上面
 CREATE TABLE sink
 (
     id   INT,
@@ -58,7 +58,7 @@ CREATE TABLE sink
       'properties.bootstrap.servers' = 'localhost:9092',
       'format' = 'debezium-json');
 
-// 执行sql
+-- 执行sql
 insert into sink
 select *
 from source
