@@ -24,6 +24,10 @@
         <git.branch>1.13.5-2.2.1</git.branch>
         <core.version>1.14.0</core.version>
         <flinkcdc.version>2.2.1</flinkcdc.version>
+        <flink.version>1.13.5</flink.version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <log4j.version>1.7.30</log4j.version>
+        <changelog.version>2.1.1</changelog.version>
     </properties>
 
     <build>
