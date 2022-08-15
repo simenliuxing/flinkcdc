@@ -1,6 +1,6 @@
 # 基于apache flink和flink-cdc-connectors工程的采集案例
 
-该工程的目的是可以通过sql化的方式，方便的全量、增量一体化采集mysql、oracle数据库中的数据，而不用安装其他的一些类canal、ogg等采集工具.
+该工程的目的是可以通过sql化的方式，方便的全量、增量一体化采集mysql、oracle等数据库中的数据，而不用安装其他的一些类canal、ogg等采集工具.
 由于目前数栈flink版本(version:flink1.12.7)原因，该工程打包后，不可在数栈上使用.
 
 ## 支持的数据库
@@ -9,6 +9,7 @@
 |-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
 | [mysql-cdc](https://github.com/ververica/flink-cdc-connectors/blob/release-2.2/docs/content/connectors/mysql-cdc.md)         | <li> [MySQL](https://dev.mysql.com/doc): 5.6, 5.7, 8.0.x <li> [RDS MySQL](https://www.aliyun.com/product/rds/mysql): 5.6, 5.7, 8.0.x <li> [PolarDB MySQL](https://www.aliyun.com/product/polardb): 5.6, 5.7, 8.0.x <li> [Aurora MySQL](https://aws.amazon.com/cn/rds/aurora): 5.6, 5.7, 8.0.x <li> [MariaDB](https://mariadb.org): 10.x <li> [PolarDB X](https://github.com/ApsaraDB/galaxysql): 2.0.1 | JDBC Driver: 8.0.21     |
 | [oracle-cdc](https://github.com/ververica/flink-cdc-connectors/blob/release-2.2/docs/content/connectors/oracle-cdc.md)       | <li> [Oracle](https://www.oracle.com/index.html): 11, 12, 19                                                                                                                                                                                                                                                                                                                                           | Oracle Driver: 19.3.0.0 |
+| [sqlserver-cdc](https://github.com/ververica/flink-cdc-connectors/blob/release-2.2/docs/content/connectors/sqlserver-cdc.md)       | <li> [Sqlserver](https://www.microsoft.com/sql-server): 2012, 2014, 2016, 2017, 2019                                                                                                                                                                                                                                                                                                             | JDBC Driver: 7.2.2.jre8 |
 
 ### sink端配置和数据类型(目前只支持写kafka)
 | Connector                                                 | Format                                                                                                                                                                                                                                                                                                                                                                                               | Data                  |
