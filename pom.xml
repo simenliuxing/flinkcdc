@@ -15,6 +15,7 @@
         <module>mysql-kafka</module>
         <module>oracle-kafka</module>
         <module>core</module>
+        <module>sqlserver-kafka</module>
     </modules>
 
     <properties>
