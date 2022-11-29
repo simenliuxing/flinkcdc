@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oracle-kafka</artifactId>
-    <name>flinkcdc : oracle-kafka</name>
+    <artifactId>db2-kafka</artifactId>
+    <name>flinkcdc : db2-kafka</name>
 
     <dependencies>
         <dependency>
@@ -19,11 +19,17 @@
             <version>${core.version}</version>
         </dependency>
         <!-- connector start -->
-        <!-- oracle -->
+        <!-- db2 -->
         <dependency>
             <groupId>com.ververica</groupId>
-            <artifactId>flink-connector-oracle-cdc</artifactId>
+            <artifactId>flink-connector-db2-cdc</artifactId>
             <version>${flinkcdc.version}</version>
+        </dependency>
+        <!-- db2 driver dependency -->
+        <dependency>
+            <groupId>com.ibm.db2.jcc</groupId>
+            <artifactId>db2jcc</artifactId>
+            <version>db2jcc4</version>
         </dependency>
         <!-- connector end -->
     </dependencies>

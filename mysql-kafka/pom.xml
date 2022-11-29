@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.flinkcdc</groupId>
         <artifactId>flinkcdc-parent</artifactId>
-        <version>1.14.0</version>
+        <version>1.16.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -19,22 +19,6 @@
             <version>${core.version}</version>
         </dependency>
         <!-- connector start -->
-        <!-- kafka -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
-            <version>${flink.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>flink-core</artifactId>
-                    <groupId>org.apache.flink</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <!-- mysql -->
         <dependency>
             <groupId>com.ververica</groupId>
