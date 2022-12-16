@@ -23,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <target.java.version>1.8</target.java.version>
         <dist.dir>flinkcdc-dist</dist.dir>
-        <git.branch>1.13.5-2.2.1</git.branch>
+        <git.branch>1.16.0-2.3.0</git.branch>
         <core.version>1.16.0</core.version>
         <flinkcdc.version>2.3.0</flinkcdc.version>
         <flink.version>1.16.0</flink.version>

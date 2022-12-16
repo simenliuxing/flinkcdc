@@ -18,7 +18,7 @@
 | kafka        |[canal-json](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/canal/) | [canal-json 数据格式](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/canal/#how-to-use-canal-format) |
 | kafka        |[maxwell-json](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/maxwell/) |  [maxwell-json 数据格式](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/maxwell/#how-to-use-maxwell-format)|
 | kafka        |[changelog-json](https://ververica.github.io/flink-cdc-connectors/release-2.1/content/formats/changelog-json.html) | changelog-json 数据格式：<br> {"data":{},"op":"+I"} <br> {"data":{},"op":"-U"} <br> {"data":{},"op":"+U"} <br> {"data":{},"op":"-D"} |
-| kafka        |[ogg-json(目前不支持)](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/ogg/) | [ogg-json 数据格式](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/ogg/#how-to-use-ogg-format) |
+| kafka        |[ogg-json](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/ogg/) | [ogg-json 数据格式](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/ogg/#how-to-use-ogg-format) |
 
 ## 使用步骤
 
