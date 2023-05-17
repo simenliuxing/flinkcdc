@@ -22,4 +22,3 @@ log/
 rocksdb-data/
 rocksdb-data-cf/
 hs_err_*.log
-flinkcdc-dist/
